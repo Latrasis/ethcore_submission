@@ -62,6 +62,7 @@
 	const app = {};
 
 	app.controller = function() {
+
 	  function checkBasic(basic) {
 	    if(_.isBoolean(basic)) return m('p.bool', basic);
 	    if(_.isString(basic)) return m('p.str', basic);
@@ -75,22 +76,25 @@
 	      return m('ul', item.map(it => m('li', checkBasic(it))))
 	    }
 	    if(_.isObject(item)) {
-	      return m('ul', _.map(item, (val, key) => m('li', [m('h5', key), checkAll(val)])))
+	      return m('ul', _.map(item, (val, key) => {
+	        if(_.isObject(val)) return m('li.list', [m('h5', key), checkAll(val)])
+	        return m('li', [m('h5', key), checkAll(val)])
+	      }))
 	    }
 	  }
 	  return {checkAll}
 	};
 
 	app.view = function(ctrl) {
-	  return m('main', [
+	  return [
 	    m('header', m('h1', headline)),
 	    m('.grid', [
 	      _.map(job, (list, key) => m('section.col.info', [
-	        m('header', m('h3', key)),
+	        m('header', m('h3', _.upperFirst(key))),
 	        ctrl.checkAll(list)
 	      ]))
 	    ])
-	  ])
+	  ]
 	}
 
 	m.mount(document.getElementById("app"), app)

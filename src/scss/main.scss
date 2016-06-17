@@ -7,35 +7,42 @@ html, body, main {
   width: 100%;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 // Main Styles
 h1, h2, h3, h4, h5, h6, p, a, i, em, li {
   font-family: sans-serif;
+  color: #fafafa;
 }
 
 // Grid
-.grid, .item {
+.grid, .col {
   display: flex;
 }
 
 .grid {
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  overflow-y: scroll;
+  align-items: center;
+  flex-grow: 2;
   .col {
     flex-direction: column;
     padding: 2em;
   }
 }
 
-.info ul {
+// Sizing
+section.info ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  min-width: 20em;
   li {
     display: flex;
     flex-direction: row;
@@ -46,4 +53,30 @@ h1, h2, h3, h4, h5, h6, p, a, i, em, li {
       margin: 0 5px;
     }
   }
+
+  li.list {
+    flex-direction: column;
+    ul {
+      padding-left: 1em;
+    }
+  }
+}
+
+main {
+  background-color: #333;
+}
+
+main > header {
+  display: fixed;
+  flex-basis:40%;
+}
+// Stylization
+section.info {
+  border: 1px solid #aaa;
+  header {
+
+  }
+  ul {}
+  li {}
+  li.list {}
 }
