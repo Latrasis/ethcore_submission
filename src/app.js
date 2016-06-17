@@ -19,10 +19,10 @@ app.controller = function() {
   function checkAll(item) {
     const res = checkBasic(item); if(res) return res;
     if(_.isArray(item)) {
-      return m('ul', item.map(it => m('li', checkBasic(it))))
+      return m('ul.arr', item.map(it => m('li', checkBasic(it))))
     }
     if(_.isObject(item)) {
-      return m('ul', _.map(item, (val, key) => {
+      return m('ul.map', _.map(item, (val, key) => {
         if(_.isObject(val)) return m('li.list', [m('h5', key), checkAll(val)])
         return m('li', [m('h5', key), checkAll(val)])
       }))
