@@ -56,12 +56,12 @@
 	const job = __webpack_require__(4)
 	const m = __webpack_require__(5)
 
-	const headline = job.headline; delete job.headline;
-
 
 	const app = {};
 
 	app.controller = function() {
+
+	  const headline = job.headline; delete job.headline;
 
 	  function checkBasic(basic) {
 	    if(_.isBoolean(basic)) return m('p.bool', basic);
@@ -82,14 +82,14 @@
 	      }))
 	    }
 	  }
-	  return {checkAll}
+	  return {checkAll, headline, job}
 	};
 
 	app.view = function(ctrl) {
 	  return [
-	    m('header', m('h1', headline)),
+	    m('header', m('h1', ctrl.headline)),
 	    m('.grid', [
-	      _.map(job, (list, key) => m('section.col.info', [
+	      _.map(ctrl.job, (list, key) => m('section.col.info', [
 	        m('header', m('h3', _.upperFirst(key))),
 	        ctrl.checkAll(list)
 	      ]))

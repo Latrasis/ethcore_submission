@@ -69,12 +69,16 @@ main {
 main > header {
   display: fixed;
   flex-basis:40%;
+  padding: 10ex;
+  h1 {
+    border-left: 4px solid;
+    padding-left: 1ex;
+  }
 }
 // Stylization
 section.info {
   border: 1px solid #aaa;
   header {
-
   }
   ul {}
   li {}

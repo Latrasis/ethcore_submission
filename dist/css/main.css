@@ -64,7 +64,11 @@ main {
 main > header {
   display: fixed;
   -ms-flex-preferred-size: 40%;
-      flex-basis: 40%; }
+      flex-basis: 40%;
+  padding: 10ex; }
+  main > header h1 {
+    border-left: 4px solid;
+    padding-left: 1ex; }
 
 section.info {
   border: 1px solid #aaa; }

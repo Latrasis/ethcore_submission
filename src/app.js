@@ -2,12 +2,12 @@ const _ = require('lodash')
 const job = require('./javascript_advert')
 const m = require('mithril')
 
-const headline = job.headline; delete job.headline;
-
 
 const app = {};
 
 app.controller = function() {
+
+  const headline = job.headline; delete job.headline;
 
   function checkBasic(basic) {
     if(_.isBoolean(basic)) return m('p.bool', basic);
@@ -28,14 +28,14 @@ app.controller = function() {
       }))
     }
   }
-  return {checkAll}
+  return {checkAll, headline, job}
 };
 
 app.view = function(ctrl) {
   return [
-    m('header', m('h1', headline)),
+    m('header', m('h1', ctrl.headline)),
     m('.grid', [
-      _.map(job, (list, key) => m('section.col.info', [
+      _.map(ctrl.job, (list, key) => m('section.col.info', [
         m('header', m('h3', _.upperFirst(key))),
         ctrl.checkAll(list)
       ]))
