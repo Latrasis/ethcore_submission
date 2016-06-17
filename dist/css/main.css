@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box; }
+
+html, body, main {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0; }
+
+main {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+
+h1, h2, h3, h4, h5, h6, p, a, i, em, li {
+  font-family: sans-serif; }
+
+.grid, .item {
+  display: -ms-flexbox;
+  display: flex; }
+
+.grid {
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .grid .col {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    padding: 2em; }
+
+.info ul {
+  list-style: none;
+  padding: 0; }
+  .info ul li {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-align: baseline;
+        align-items: baseline;
+    padding: 0.5ex 0;
+    margin: 0; }
+    .info ul li h3, .info ul li h4, .info ul li h5, .info ul li p {
+      margin: 0 5px; }

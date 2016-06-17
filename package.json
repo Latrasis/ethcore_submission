@@ -1,0 +1,26 @@
+{
+  "name": "profile_eth",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "",
+  "main": "javascript_advert.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "lodash": "^4.13.1",
+    "vue": "^1.0.24"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-connect": "^4.1.0",
+    "gulp-sass": "^2.3.1",
+    "html-loader": "^0.4.3",
+    "webpack": "^1.13.1",
+    "webpack-stream": "^3.2.0"
+  }
+}

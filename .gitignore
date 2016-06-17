@@ -1,0 +1,6 @@
+#NODE
+node_modules
+*.log
+
+#OSX
+.DS_Store
