@@ -1,22 +1,6 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:500,300,100,400);
-// Main Layout
-
-* { box-sizing: padding-box;}
-
-html, body, main {
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-}
 
 // Main Styles
 h1, h2, h3, h4, h5, h6, p, a, i, em, li {
@@ -27,14 +11,26 @@ h1, h2, h3, h4, h5 {
   font-family: 'Work Sans', sans-serif;
 }
 
+// Main Layout
+* { box-sizing: padding-box;}
+
+html, body, main {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 758px){
+  overflow:hidden;
+}
+
 // Grid
 .grid, .col {
   display: flex;
 }
-
 .grid {
   flex-direction: column;
-  overflow-y: auto;
   align-items: center;
   flex-grow: 2;
   .col {
@@ -43,25 +39,67 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-main {
-  background: linear-gradient(#000, #1A1919);
-}
-
-main > header {
-  display: fixed;
-  flex-basis:40%;
-  padding: 10ex;
-  h1 {
-    margin-top: 0;
-    border-left: 4px solid;
-    padding-left: 1ex;
+@media screen and (min-width: 758px) {
+  .grid {
+    overflow-y: auto;
   }
 }
 
+main {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  & > header {
+    display: block;
+    min-height:100%;
+    padding: 10ex;
+    svg#graphic {
+      min-height: 100%;
+      min-width: inherit;
+      background: linear-gradient(#444, #333);
+      position:absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      z-index: -1;
+    }
+    h1 {
+      margin-top: 0;
+      border-left: 4px solid;
+      padding-left: 1ex;
+    }
+  }
+}
+
+@media screen and (min-width: 758px) {
+  main {
+    flex-direction: row;
+    & > header {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      flex-basis:40%;
+      ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        width: 200px;
+        flex-wrap: wrap;
+        li {
+          margin: 0 0.1em;
+        }
+      }
+    }
+  }
+}
+
+
 // Stylization and Sizing
 section.info {
-  margin-top:10ex;
-  border: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+  height: 100%;
   & > header {
     font-size: 1.5em;
     border-top: 4px solid #fff;
@@ -70,7 +108,7 @@ section.info {
   ul {
     padding: 0;
     margin: 0;
-    min-width: 20em;
+    min-width: 17em;
     &.arr {
       li::before {
         content: "- ";
@@ -101,5 +139,13 @@ section.info {
         padding: 1ex 0 0 1em;
       }
     }
+  }
+}
+
+@media screen and (min-width: 758px) {
+  section.info {
+    margin-top:10ex;
+    height: auto;
+    border: 1px solid #aaa;
   }
 }

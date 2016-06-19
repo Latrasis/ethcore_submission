@@ -9,6 +9,10 @@ app.controller = function() {
 
   const headline = job.headline; delete job.headline;
 
+  function draw(el, isInit, context) {
+
+  }
+
   function checkBasic(basic) {
     if(_.isBoolean(basic)) return m('p.bool', basic);
     if(_.isString(basic)) return m('p.str', basic);
@@ -28,15 +32,18 @@ app.controller = function() {
       }))
     }
   }
-  return {checkAll, headline, job}
+  return {checkAll, headline, job, draw}
 };
 
 app.view = function(ctrl) {
   return [
-    m('header', m('h1', ctrl.headline)),
+    m('header', [
+      m('h1', ctrl.headline),
+      m('svg#graphic', {config: ctrl.draw})
+    ]),
     m('.grid', [
       _.map(ctrl.job, (list, key) => m('section.col.info', [
-        m('header', m('h3', _.upperFirst(key))),
+        m('header', m('h3', {id: key}, _.upperFirst(key))),
         ctrl.checkAll(list)
       ]))
     ])

@@ -1,5 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700);
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:500,300,100,400);
+h1, h2, h3, h4, h5, h6, p, a, i, em, li {
+  color: #fafafa;
+  font-family: 'Inconsolata', sans-serif; }
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Work Sans', sans-serif; }
+
 * {
   box-sizing: padding-box; }
 
@@ -7,21 +14,10 @@ html, body, main {
   height: 100%;
   width: 100%;
   padding: 0;
-  margin: 0;
+  margin: 0; }
+
+@media screen and (min-width: 758px) {
   overflow: hidden; }
-
-main {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row; }
-
-h1, h2, h3, h4, h5, h6, p, a, i, em, li {
-  color: #fafafa;
-  font-family: 'Inconsolata', sans-serif; }
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Work Sans', sans-serif; }
 
 .grid, .col {
   display: -ms-flexbox;
@@ -30,7 +26,6 @@ h1, h2, h3, h4, h5 {
 .grid {
   -ms-flex-direction: column;
       flex-direction: column;
-  overflow-y: auto;
   -ms-flex-align: center;
       -ms-grid-row-align: center;
       align-items: center;
@@ -41,22 +36,64 @@ h1, h2, h3, h4, h5 {
         flex-direction: column;
     padding: 2em; }
 
-main {
-  background: linear-gradient(#000, #1A1919); }
+@media screen and (min-width: 758px) {
+  .grid {
+    overflow-y: auto; } }
 
-main > header {
-  display: fixed;
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
-  padding: 10ex; }
-  main > header h1 {
-    margin-top: 0;
-    border-left: 4px solid;
-    padding-left: 1ex; }
+main {
+  background: transparent;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  overflow: auto; }
+  main > header {
+    display: block;
+    min-height: 100%;
+    padding: 10ex; }
+    main > header svg#graphic {
+      min-height: 100%;
+      min-width: inherit;
+      background: linear-gradient(#444, #333);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1; }
+    main > header h1 {
+      margin-top: 0;
+      border-left: 4px solid;
+      padding-left: 1ex; }
+
+@media screen and (min-width: 758px) {
+  main {
+    -ms-flex-direction: row;
+        flex-direction: row; }
+    main > header {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+      -ms-flex-direction: column;
+          flex-direction: column;
+      -ms-flex-preferred-size: 40%;
+          flex-basis: 40%; }
+      main > header ul {
+        list-style: none;
+        padding: 0;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: row;
+            flex-direction: row;
+        width: 200px;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+        main > header ul li {
+          margin: 0 0.1em; } }
 
 section.info {
-  margin-top: 10ex;
-  border: 1px solid #aaa; }
+  border-top: 1px solid #aaa;
+  height: 100%; }
   section.info > header {
     font-size: 1.5em;
     border-top: 4px solid #fff;
@@ -64,7 +101,7 @@ section.info {
   section.info ul {
     padding: 0;
     margin: 0;
-    min-width: 20em; }
+    min-width: 17em; }
     section.info ul.arr li::before {
       content: "- "; }
     section.info ul li {
@@ -89,3 +126,9 @@ section.info {
           flex-direction: column; }
       section.info ul li.list ul {
         padding: 1ex 0 0 1em; }
+
+@media screen and (min-width: 758px) {
+  section.info {
+    margin-top: 10ex;
+    height: auto;
+    border: 1px solid #aaa; } }
