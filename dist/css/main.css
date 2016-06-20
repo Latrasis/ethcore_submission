@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:500,300,100,400);
 h1, h2, h3, h4, h5, h6, p, a, i, em, li {
   color: #fafafa;
-  font-family: 'Inconsolata', sans-serif; }
+  font-family: 'Inconsolata', monospace, sans-serif; }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Work Sans', sans-serif; }
@@ -48,9 +48,15 @@ main {
       flex-direction: column;
   overflow: auto; }
   main > header {
-    display: block;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+    -ms-flex-direction: column;
+        flex-direction: column;
     min-height: 100%;
-    padding: 10ex; }
+    padding: 10ex;
+    background-color: #222; }
     main > header svg#graphic {
       min-height: 100%;
       min-width: inherit;
@@ -60,36 +66,32 @@ main {
       left: 0;
       width: 100%;
       z-index: -1; }
+      main > header svg#graphic path {
+        stroke: #333;
+        stroke-linejoin: "round";
+        stroke-width: 0.1;
+        fill: none; }
     main > header h1 {
       margin-top: 0;
       border-left: 4px solid;
       padding-left: 1ex; }
+    main > header footer {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center; }
+      main > header footer img {
+        height: 50px; }
+      main > header footer #eth {
+        height: 40px; }
 
 @media screen and (min-width: 758px) {
   main {
     -ms-flex-direction: row;
         flex-direction: row; }
     main > header {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-      -ms-flex-direction: column;
-          flex-direction: column;
-      -ms-flex-preferred-size: 40%;
-          flex-basis: 40%; }
-      main > header ul {
-        list-style: none;
-        padding: 0;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: row;
-            flex-direction: row;
-        width: 200px;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap; }
-        main > header ul li {
-          margin: 0 0.1em; } }
+      -ms-flex-preferred-size: 30%;
+          flex-basis: 30%; } }
 
 section.info {
   border-top: 1px solid #aaa;
@@ -131,4 +133,6 @@ section.info {
   section.info {
     margin-top: 10ex;
     height: auto;
-    border: 1px solid #aaa; } }
+    border: 1px solid #aaa; }
+    section.info:last-child {
+      margin-bottom: 20px; } }

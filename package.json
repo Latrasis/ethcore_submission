@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.4.0",
+    "d3": "^3.5.17",
     "lodash": "^4.13.1",
     "vue": "^1.0.24"
   },
